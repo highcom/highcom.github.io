@@ -14,7 +14,7 @@ body {
 
 /* Header & Navigation */
 header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #68a7ae 0%, #4a8a93 100%);
   color: white;
   padding: 0;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -88,6 +88,60 @@ main {
   padding: 0 20px;
 }
 
+/* Intro section: use developerheader.jpeg as background with overlay */
+.intro-section {
+  position: relative;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 40px;
+  padding: 24px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-image: url('img/developerheader.jpeg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* dark / teal overlay to ensure text contrast */
+.intro-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(8, 50, 52, 0.55), rgba(74, 138, 147, 0.35));
+  z-index: 1;
+}
+
+/* put children above overlay */
+.intro-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* text color override for readability on image */
+.intro-section h1,
+.intro-section p {
+  color: #ffffff;
+}
+
+/* icon style override when on image background */
+.intro-icon img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+  border: 3px solid rgba(255,255,255,0.9);
+}
+
+.intro-icon {
+  flex-shrink: 0;
+}
+
+.intro-content {
+  flex: 1;
+}
+
 .container {
   background: white;
   padding: 40px;
@@ -97,20 +151,20 @@ main {
 }
 
 h1 {
-  color: #667eea;
+  color: #68a7ae;
   margin-bottom: 20px;
   font-size: 28px;
 }
 
 h2 {
-  color: #764ba2;
+  color: #4a8a93;
   margin-top: 30px;
   margin-bottom: 15px;
   font-size: 22px;
 }
 
 h3 {
-  color: #667eea;
+  color: #68a7ae;
   margin-top: 20px;
   margin-bottom: 10px;
   font-size: 18px;
@@ -123,15 +177,34 @@ p {
 
 /* App Cards */
 .app-card {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(104, 167, 174, 0.1) 0%, rgba(74, 138, 147, 0.1) 100%);
   padding: 30px;
   margin: 20px 0;
   border-radius: 8px;
-  border-left: 4px solid #667eea;
+  border-left: 4px solid #68a7ae;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.app-icon {
+  flex-shrink: 0;
+}
+
+.app-icon img {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.app-content {
+  flex: 1;
 }
 
 .app-card h3 {
-  color: #667eea;
+  color: #68a7ae;
   margin-top: 0;
 }
 
@@ -149,7 +222,7 @@ p {
 .btn {
   display: inline-block;
   padding: 12px 24px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #68a7ae 0%, #4a8a93 100%);
   color: white;
   text-decoration: none;
   border-radius: 5px;
@@ -162,26 +235,46 @@ p {
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 15px rgba(104, 167, 174, 0.4);
 }
 
 .btn-secondary {
-  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  background: linear-gradient(135deg, #4a8a93 0%, #68a7ae 100%);
 }
 
 /* Profile Section */
-.profile-info {
+.profile-header {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 40px;
+  align-items: flex-start;
+}
+
+.profile-image {
+  flex-shrink: 0;
+}
+
+.profile-image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(104, 167, 174, 0.3);
+  border: 3px solid #68a7ae;
+}
+
+.profile-header > div:last-child {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
-  margin-bottom: 40px;
+  flex: 1;
 }
 
 .profile-bio {
   padding: 20px;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(104, 167, 174, 0.05) 0%, rgba(74, 138, 147, 0.05) 100%);
   border-radius: 8px;
-  border-left: 4px solid #667eea;
+  border-left: 4px solid #68a7ae;
 }
 
 .profile-bio h3 {
@@ -190,14 +283,14 @@ p {
 
 .profile-skills {
   padding: 20px;
-  background: linear-gradient(135deg, rgba(118, 75, 162, 0.05) 0%, rgba(102, 126, 234, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(74, 138, 147, 0.05) 0%, rgba(104, 167, 174, 0.05) 100%);
   border-radius: 8px;
-  border-left: 4px solid #764ba2;
+  border-left: 4px solid #4a8a93;
 }
 
 .profile-skills h3 {
   margin-top: 0;
-  color: #764ba2;
+  color: #4a8a93;
 }
 
 .skill-list {
@@ -212,7 +305,7 @@ p {
 
 .skill-list li:before {
   content: "▸ ";
-  color: #667eea;
+  color: #68a7ae;
   font-weight: bold;
   margin-right: 8px;
 }
@@ -236,15 +329,15 @@ p {
   top: 5px;
   width: 12px;
   height: 12px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #68a7ae 0%, #4a8a93 100%);
   border-radius: 50%;
   border: 2px solid white;
-  box-shadow: 0 0 0 2px #667eea;
+  box-shadow: 0 0 0 2px #68a7ae;
 }
 
 .timeline-date {
   font-weight: bold;
-  color: #667eea;
+  color: #68a7ae;
   margin-right: 10px;
 }
 
@@ -263,7 +356,7 @@ p {
 .social-links a {
   display: inline-block;
   padding: 10px 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #68a7ae 0%, #4a8a93 100%);
   color: white;
   text-decoration: none;
   border-radius: 5px;
@@ -278,7 +371,7 @@ p {
 
 /* Footer */
 footer {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #68a7ae 0%, #4a8a93 100%);
   color: white;
   text-align: center;
   padding: 30px 20px;
@@ -332,8 +425,50 @@ footer a:hover {
     flex: none;
   }
 
-  .profile-info {
+  .intro-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .intro-icon {
+    width: 100%;
+  }
+
+  .intro-icon img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-image img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-header > div:last-child {
     grid-template-columns: 1fr;
+  }
+
+  .app-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .app-icon {
+    width: 100%;
+  }
+
+  .app-icon img {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    display: block;
   }
 
   .container {
@@ -380,4 +515,3 @@ footer a:hover {
     font-size: 18px;
   }
 }
-
