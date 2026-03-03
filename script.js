@@ -28,5 +28,26 @@ document.addEventListener('DOMContentLoaded', function() {
       nav.classList.remove('active');
     });
   });
-});
 
+  // Language switcher for Privacy Policy
+  const btnJa = document.getElementById('lang-ja');
+  const btnEn = document.getElementById('lang-en');
+  const contentJa = document.getElementById('privacy-ja');
+  const contentEn = document.getElementById('privacy-en');
+
+  if (btnJa && btnEn && contentJa && contentEn) {
+    btnJa.addEventListener('click', function() {
+      contentJa.style.display = 'block';
+      contentEn.style.display = 'none';
+      btnJa.classList.add('active');
+      btnEn.classList.remove('active');
+    });
+
+    btnEn.addEventListener('click', function() {
+      contentJa.style.display = 'none';
+      contentEn.style.display = 'block';
+      btnEn.classList.add('active');
+      btnJa.classList.remove('active');
+    });
+  }
+});
