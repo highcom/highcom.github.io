@@ -337,6 +337,11 @@ p {
   margin-top: 0;
 }
 
+.profile-name {
+  font-weight: bold;
+  color: #4a8a93;
+}
+
 .profile-skills {
   padding: 20px;
   background: linear-gradient(135deg, rgba(74, 138, 147, 0.05) 0%, rgba(104, 167, 174, 0.05) 100%);
